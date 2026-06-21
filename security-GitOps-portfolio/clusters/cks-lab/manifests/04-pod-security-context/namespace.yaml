@@ -3,7 +3,6 @@ kind: Namespace
 metadata:
   name: pod-security-lab
   labels:
-    owner: "pod-security-lab"
     # Pod Security Standards Enforcement
     pod-security.kubernetes.io/enforce: baseline
     pod-security.kubernetes.io/enforce-version: v1.29
@@ -12,3 +11,4 @@ metadata:
     pod-security.kubernetes.io/warn: restricted
     pod-security.kubernetes.io/warn-version: v1.29
     cks.exercise: "04-pod-security-context"
+    owner: "pod-security-lab"
