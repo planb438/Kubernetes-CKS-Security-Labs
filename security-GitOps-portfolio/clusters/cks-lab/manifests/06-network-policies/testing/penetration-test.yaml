@@ -33,3 +33,9 @@ spec:
           echo ""
           
           echo "=== Penetration Test Complete ==="
+        securityContext:
+          privileged: false
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
