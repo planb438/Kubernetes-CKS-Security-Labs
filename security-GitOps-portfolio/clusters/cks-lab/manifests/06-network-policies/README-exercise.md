@@ -1,164 +1,171 @@
-Kubernetes/gitops/
-├── clusters/
-│   └── cks-lab/
-│       ├── applications/
-│       │   ├── 06-network-policies.yaml
-│       │   ├── 06-namespace-setup.yaml
-│       │   └── 06-policy-validation.yaml
-│       └── manifests/
-│           └── 06-network-policies/
-│               ├── namespaces/
-│               │   ├── tiered-namespaces.yaml
-│               │   ├── environment-namespaces.yaml
-│               │   └── team-namespaces.yaml
-│               ├── workloads/
-│               │   ├── frontend/
-│               │   │   ├── deployment.yaml
-│               │   │   ├── service.yaml
-│               │   │   └── ingress.yaml
-│               │   ├── backend/
-│               │   ├── database/
-│               │   └── monitoring/
-│               ├── policies/
-│               │   ├── 01-deny-all.yaml
-│               │   ├── 02-namespace-isolation.yaml
-│               │   ├── 03-tiered-access.yaml
-│               │   ├── 04-egress-controls.yaml
-│               │   ├── 05-dns-policies.yaml
-│               │   ├── 06-cidr-based.yaml
-│               │   └── 07-port-restrictions.yaml
-│               ├── testing/
-│               │   ├── network-tests.yaml
-│               │   ├── penetration-test.yaml
-│               │   └── validation-job.yaml
-│               ├── tools/
-│               │   ├── network-scanner.yaml
-│               │   ├── policy-generator.yaml
-│               │   └── visualization.yaml
-│               └── README-exercise.md
-├── policies/
-│   └── network-security/
-│       ├── baseline-policies.yaml
-│       ├── egress-default-deny.yaml
-│       └── namespace-defaults.yaml
-└── tools/
-    └── network-audit/
-        ├── netpol-scanner.yaml
-        └── traffic-visualizer.yaml
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Ubuntu%2022.04%2B-lightgrey)](#)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-MicroK8s%20%7C%20kubeadm-blue)](#)
+[![YouTube](https://img.shields.io/badge/YouTube-TechShorts-red)](https://www.youtube.com/@adaribain)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Adari%20Bain-blue)](https://www.linkedin.com/in/adari-bain-298924152/)
+    
+    
+    Kubernetes/gitops/
+    ├── clusters/
+    │   └── cks-lab/
+    │       ├── applications/
+    │       │   ├── 06-network-policies.yaml
+    │       │   ├── 06-namespace-setup.yaml
+    │       │   └── 06-policy-validation.yaml
+    │       └── manifests/
+    │           └── 06-network-policies/
+    │               ├── namespaces/
+    │               │   ├── tiered-namespaces.yaml
+    │               │   ├── environment-namespaces.yaml
+    │               │   └── team-namespaces.yaml
+    │               ├── workloads/
+    │               │   ├── frontend/
+    │               │   │   ├── deployment.yaml
+    │               │   │   ├── service.yaml
+    │               │   │   └── ingress.yaml
+    │               │   ├── backend/
+    │               │   ├── database/
+    │               │   └── monitoring/
+    │               ├── policies/
+    │               │   ├── 01-deny-all.yaml
+    │               │   ├── 02-namespace-isolation.yaml
+    │               │   ├── 03-tiered-access.yaml
+    │               │   ├── 04-egress-controls.yaml
+    │               │   ├── 05-dns-policies.yaml
+    │               │   ├── 06-cidr-based.yaml
+    │               │   └── 07-port-restrictions.yaml
+    │               ├── testing/
+    │               │   ├── network-tests.yaml
+    │               │   ├── penetration-test.yaml
+    │               │   └── validation-job.yaml
+    │               ├── tools/
+    │               │   ├── network-scanner.yaml
+    │               │   ├── policy-generator.yaml
+    │               │   └── visualization.yaml
+    │               └── README-exercise.md
+    ├── policies/
+    │   └── network-security/
+    │       ├── baseline-policies.yaml
+    │       ├── egress-default-deny.yaml
+    │       └── namespace-defaults.yaml
+    └── tools/
+        └── network-audit/
+            ├── netpol-scanner.yaml
+            └── traffic-visualizer.yaml
 
 markdown
 # CKS Exercise 06: Network Policies & Zero-Trust Security
 
 ## Learning Objectives:
-- Implement Kubernetes Network Policies for microservices
-- Apply zero-trust network principles
-- Design tiered network architecture
-- Test and validate network security controls
+#### - Implement Kubernetes Network Policies for microservices
+#### - Apply zero-trust network principles
+#### - Design tiered network architecture
+#### - Test and validate network security controls
 
 ## Scenario:
-You are securing a microservices application with multiple tiers.
-Implement network policies to enforce least-privilege communication.
+#### You are securing a microservices application with multiple tiers.
+#### Implement network policies to enforce least-privilege communication.
 
 ## Tasks:
 
 ### Task 1: Deploy Tiered Architecture
-1. Deploy namespaces (web, app, data, management)
-2. Deploy sample workloads in each tier
-3. Apply default deny-all policies
+#### 1. Deploy namespaces (web, app, data, management)
+#### 2. Deploy sample workloads in each tier
+#### 3. Apply default deny-all policies
 
 ### Task 2: Implement Least-Privilege Policies
-1. Allow web → app communication (HTTP/HTTPS only)
-2. Allow app → data communication (database ports only)
-3. Block data → app/web communication
-4. Allow monitoring access from management tier
+#### 1. Allow web → app communication (HTTP/HTTPS only)
+#### 2. Allow app → data communication (database ports only)
+#### 3. Block data → app/web communication
+#### 4. Allow monitoring access from management tier
 
 ### Task 3: Control Egress Traffic
-1. Restrict egress to external services
-2. Block access to cloud metadata services
-3. Allow DNS only to internal DNS servers
-4. Create allow-list for required external APIs
+#### 1. Restrict egress to external services
+#### 2. Block access to cloud metadata services
+#### 3. Allow DNS only to internal DNS servers
+#### 4. Create allow-list for required external APIs
 
 ### Task 4: Test & Validate
-1. Run network penetration tests
-2. Validate policies allow required traffic
-3. Verify policies block unauthorized traffic
-4. Generate compliance report
+#### 1. Run network penetration tests
+#### 2. Validate policies allow required traffic
+#### 3. Verify policies block unauthorized traffic
+#### 4. Generate compliance report
 
 ## Success Criteria:
-- [ ] Tiered architecture deployed via GitOps
-- [ ] Network policies applied to all tiers
-- [ ] Least-privilege communication enforced
-- [ ] Egress traffic controlled
-- [ ] Penetration tests passed
-- [ ] Documentation complete
+#### - [ ] Tiered architecture deployed via GitOps
+#### - [ ] Network policies applied to all tiers
+#### - [ ] Least-privilege communication enforced
+#### - [ ] Egress traffic controlled
+#### - [ ] Penetration tests passed
+#### - [ ] Documentation complete
 
 ## Production Checklist:
-- [ ] Default deny-all policies in place
-- [ ] Namespace isolation implemented
-- [ ] Tiered communication controls
-- [ ] Egress to metadata blocked
-- [ ] DNS restrictions applied
-- [ ] Regular network scanning
-- [ ] Policy violation alerts
-🚀 DEPLOYMENT WORKFLOW:
-In ArgoCD UI:
-text
-Application 1: network-policy-namespaces
-Path: gitops/clusters/cks-lab/manifests/06-network-policies/namespaces
+#### - [ ] Default deny-all policies in place
+#### - [ ] Namespace isolation implemented
+#### - [ ] Tiered communication controls
+#### - [ ] Egress to metadata blocked
+#### - [ ] DNS restrictions applied
+#### - [ ] Regular network scanning
+#### - [ ] Policy violation alerts
+#### 🚀 DEPLOYMENT WORKFLOW:
+#### In ArgoCD UI:
+#### text
+    Application 1: network-policy-namespaces
+    Path: gitops/clusters/cks-lab/manifests/06-network-policies/namespaces
 
-Application 2: network-policy-workloads
-Path: gitops/clusters/cks-lab/manifests/06-network-policies/workloads
+    Application 2: network-policy-workloads
+    Path: gitops/clusters/cks-lab/manifests/06-network-policies/workloads
 
-Application 3: network-policies
-Path: gitops/clusters/cks-lab/manifests/06-network-policies/policies
-Testing Commands:
-bash
+    Application 3: network-policies
+    Path: gitops/clusters/cks-lab/manifests/06-network-policies/policies
+#### Testing Commands:
+#### bash
 # Test network connectivity
-kubectl run -n tier-web test --image=alpine/curl --rm -it --restart=Never -- \
-  curl -v http://backend.tier-app.svc.cluster.local:8080
+    kubectl run -n tier-web test --image=alpine/curl --rm -it --restart=Never -- \
+     curl -v http://backend.tier-app.svc.cluster.local:8080
 
 # Check network policies
-kubectl get networkpolicies --all-namespaces
+    kubectl get networkpolicies --all-namespaces
 
 # Visualize network flows (if Weave Net installed)
-kubectl get pods -n kube-system | grep weave
-💡 KEY NETWORK POLICY CONCEPTS:
-Default Deny: Start with deny-all, add allow rules
+    kubectl get pods -n kube-system | grep weave
+#### 💡 KEY NETWORK POLICY CONCEPTS:
+#### Default Deny: Start with deny-all, add allow rules
 
-Namespace Isolation: Control cross-namespace traffic
+#### Namespace Isolation: Control cross-namespace traffic
 
-Pod Selectors: Granular control based on labels
+#### Pod Selectors: Granular control based on labels
 
-Port Restrictions: Allow only necessary ports
+#### Port Restrictions: Allow only necessary ports
 
-Egress Controls: Control outbound traffic
+#### Egress Controls: Control outbound traffic
 
-CIDR Blocks: Allow/block specific IP ranges
+#### CIDR Blocks: Allow/block specific IP ranges
 
-🔧 CNI SUPPORT CHECK:
-Network Policies require CNI plugins that support them:
+#### 🔧 CNI SUPPORT CHECK:
+#### Network Policies require CNI plugins that support them:
 
-Calico (Most feature-rich)
+#### Calico (Most feature-rich)
 
-Cilium (eBPF-based, recommended)
+#### Cilium (eBPF-based, recommended)
 
-Weave Net
+#### Weave Net
 
-Antrea
+#### Antrea
 
-Check your CNI:
+#### Check your CNI:
 
-bash
-kubectl get pods -n kube-system | grep -E "calico|cilium|weave|antrea"
-Want me to:
+#### bash
+    kubectl get pods -n kube-system | grep -E "calico|cilium|weave|antrea"
+#### Want me to:
 
-Add Cilium Network Policies (L7 policies)?
+#### Add Cilium Network Policies (L7 policies)?
 
-Create Service Mesh integration (Istio + Network Policies)?
+#### Create Service Mesh integration (Istio + Network Policies)?
 
-Add compliance framework (NIST, CIS benchmarks)?
+#### Add compliance framework (NIST, CIS benchmarks)?
 
-Create automated policy generator?
+#### Create automated policy generator?
 
-This transforms your network policy lab into a complete zero-trust security implementation for production!
+#### This transforms your network policy lab into a complete zero-trust security implementation for production!
 
