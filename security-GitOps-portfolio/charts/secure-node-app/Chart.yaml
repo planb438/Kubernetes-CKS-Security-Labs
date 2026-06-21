@@ -3,6 +3,6 @@ name: secure-node-app
 version: 1.0.0
 dependencies:
   - name: node
-    version: "20.0.0"
+    version: "18.1.18"
     repository: https://charts.bitnami.com/bitnami
 description: A secure Node.js application with built-in security controls
