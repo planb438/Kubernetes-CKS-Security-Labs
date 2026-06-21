@@ -137,3 +137,16 @@ text
     Git Commit → ArgoCD → Cluster
      ↓
     Audit Trail + Repeatable + Scalable + Collaborative
+
+---
+
+# 📝 Kyverno Policy Reports
+#### bash
+####  Check policy reports
+    kubectl get policyreport -A
+
+####  Check specific report
+    kubectl get policyreport -n policy-test
+
+####  Get detailed report
+    kubectl describe policyreport -n policy-test
