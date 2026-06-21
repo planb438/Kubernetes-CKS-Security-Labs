@@ -1,3 +1,4 @@
 resources:
+- namespace.yaml
 - bad-pod.yaml
 - good-pod.yaml
