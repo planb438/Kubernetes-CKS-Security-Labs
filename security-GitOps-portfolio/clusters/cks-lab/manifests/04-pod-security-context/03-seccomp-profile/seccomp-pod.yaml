@@ -18,6 +18,7 @@ spec:
     command: ["sleep", "3600"]
     securityContext:
       allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -55,6 +56,7 @@ metadata:
   namespace: pod-security-lab
 spec:
   securityContext:
+    readOnlyRootFilesystem: true
     seccompProfile:
       type: Localhost
       localhostProfile: profiles/custom-profile.json
