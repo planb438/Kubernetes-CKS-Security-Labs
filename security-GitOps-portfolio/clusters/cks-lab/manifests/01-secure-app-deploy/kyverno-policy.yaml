@@ -47,3 +47,76 @@ spec:
           securityContext:
             seccompProfile:
               type: RuntimeDefault
+
+---
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-namespace-labels
+  annotations:
+    policies.kyverno.io/title: Require Namespace Labels
+    policies.kyverno.io/severity: low
+spec:
+  validationFailureAction: Enforce
+  rules:
+  - name: require-labels
+    match:
+      resources:
+        kinds:
+        - Namespace
+    validate:
+      message: "All namespaces must have an 'owner' label."
+      pattern:
+        metadata:
+          labels:
+            owner: "?*"
+---
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: disallow-latest-tag
+  annotations:
+    policies.kyverno.io/title: Disallow Latest Image Tag
+    policies.kyverno.io/severity: medium
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+  - name: require-image-tag
+    match:
+      resources:
+        kinds:
+        - Pod
+    validate:
+      message: "Using 'latest' image tag is not allowed. Use a specific version."
+      pattern:
+        spec:
+          containers:
+          - image: "*:*"
+          - image: "!*:latest"
+
+---
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-readonly-rootfs
+  annotations:
+    policies.kyverno.io/title: Require Read-Only Root Filesystem
+    policies.kyverno.io/severity: medium
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+  - name: check-rootfs
+    match:
+      resources:
+        kinds:
+        - Pod
+    validate:
+      message: "Containers must have read-only root filesystem."
+      pattern:
+        spec:
+          containers:
+          - securityContext:
+              readOnlyRootFilesystem: true
+            
