@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
   name: tier-web
   labels:
+    owner: "web"
     tier: web
     security-zone: dmz
     network-policy: tiered
@@ -12,6 +13,7 @@ kind: Namespace
 metadata:
   name: tier-app
   labels:
+    owner: "app"
     tier: app
     security-zone: application
     network-policy: tiered
@@ -21,6 +23,7 @@ kind: Namespace
 metadata:
   name: tier-data
   labels:
+    owner: "data"
     tier: data
     security-zone: restricted
     network-policy: tiered
@@ -30,6 +33,7 @@ kind: Namespace
 metadata:
   name: tier-mgmt
   labels:
+    owner: "management"
     tier: management
     security-zone: management
     network-policy: tiered
