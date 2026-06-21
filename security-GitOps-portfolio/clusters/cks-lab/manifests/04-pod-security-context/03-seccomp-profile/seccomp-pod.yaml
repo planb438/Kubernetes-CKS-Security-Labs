@@ -56,7 +56,6 @@ metadata:
   namespace: pod-security-lab
 spec:
   securityContext:
-    readOnlyRootFilesystem: true
     seccompProfile:
       type: Localhost
       localhostProfile: profiles/custom-profile.json
@@ -64,3 +63,5 @@ spec:
   - name: app
     image: busybox:latest
     command: ["sleep", "3600"]
+    securityContext:
+      readOnlyRootFilesystem: true
