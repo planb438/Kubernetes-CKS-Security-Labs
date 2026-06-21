@@ -39,3 +39,9 @@ spec:
           echo ""
           
           echo "=== Test Complete ==="
+        securityContext:
+          privileged: false
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
