@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
   name: cks-secure-app
   labels:
+    owner: "team-name"
     security-lab: "true"
     pod-security.kubernetes.io/enforce: baseline
     pod-security.kubernetes.io/audit: restricted
