@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
   name: psa-baseline
   labels:
+    owner: "psa-baseline"
     # BASELINE: Prevents known privilege escalations
     pod-security.kubernetes.io/enforce: baseline
     pod-security.kubernetes.io/enforce-version: v1.29
