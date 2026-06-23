@@ -137,15 +137,4 @@ text
 #### Built-in	No (deprecated in 1.25)	Yes (1.22+)
 #### Adoption	Declining	Recommended
 #### Learning Curve	Steep	Gentle
-#### Want me to:
-
-#### Add PSP-to-PSA migration guide?
-
-#### Create compliance dashboard with Grafana?
-
-#### Add CI/CD pipeline for PSA validation?
-
-#### Create exemption request workflow?
-
-#### This transforms PSA lab into a complete production implementation guide for the modern Kubernetes security standard!
 
