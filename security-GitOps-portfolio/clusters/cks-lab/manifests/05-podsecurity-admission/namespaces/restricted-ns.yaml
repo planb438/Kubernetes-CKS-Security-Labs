@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
   name: psa-restricted
   labels:
+    owner: "psa-restricted"
     # RESTRICTED: Hardened security profile
     pod-security.kubernetes.io/enforce: restricted
     pod-security.kubernetes.io/enforce-version: v1.29
