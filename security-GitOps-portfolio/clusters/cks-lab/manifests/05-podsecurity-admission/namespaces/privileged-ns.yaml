@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
   name: psa-privileged
   labels:
+    owner: "psa-privileged"
     # PRIVILEGED: No restrictions (for system workloads)
     pod-security.kubernetes.io/enforce: privileged
     pod-security.kubernetes.io/enforce-version: v1.29
