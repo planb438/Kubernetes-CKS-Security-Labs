@@ -5,7 +5,7 @@ metadata:
   labels:
     # This ENTIRE namespace is exempt from PSA
     # (Configured via AdmissionConfiguration)
-    owner: "Adari-Bain"
+    owner: "psa-exempt-namespace"
     exemptions.security.kubernetes.io/pod-security: "psa-exempt-namespace"
   annotations:
     reason: "Legacy applications that cannot be modified"
